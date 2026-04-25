@@ -1,0 +1,91 @@
+@import '@fontsource-variable/inter';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg: 9 9 11;            /* zinc-950 */
+    --surface: 24 24 27;     /* zinc-900 */
+    --surface-2: 39 39 42;   /* zinc-800 */
+    --border: 39 39 42;      /* zinc-800 */
+    --text: 250 250 250;     /* zinc-50 */
+    --text-muted: 161 161 170;  /* zinc-400 */
+    --text-faint: 113 113 122;  /* zinc-500 */
+    --accent: 99 102 241;    /* indigo-500 */
+    --accent-soft: 129 140 248; /* indigo-400 */
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Inter Variable', Inter, 'IBM Plex Sans Arabic', 'Cairo',
+      'Tajawal', 'Noto Sans Arabic', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Slightly looser line-height for Arabic glyph height */
+  html[lang='ar'] body {
+    line-height: 1.65;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.35);
+    color: #FFFFFF;
+  }
+
+  /* Scrollbars — subtle, not OS-default */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.06);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.12);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+
+  /* Native form reset for the inspector inputs */
+  input, textarea, select, button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  /* Reusable surfaces */
+  .surface {
+    @apply bg-zinc-900/70 border border-zinc-800/80 backdrop-blur-sm;
+  }
+  .surface-raised {
+    @apply bg-zinc-800/60 border border-zinc-700/60;
+  }
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-soft active:scale-[0.98] focus-ring;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-800 bg-transparent px-4 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-900 active:scale-[0.98] focus-ring;
+  }
+  .btn-icon {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-400 transition hover:bg-zinc-800/80 hover:text-zinc-100 focus-ring;
+  }
+  .input-base {
+    @apply w-full rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 transition focus-ring focus:border-zinc-700;
+  }
+  .label-base {
+    @apply mb-1.5 block text-[11px] font-medium uppercase tracking-wider text-zinc-500;
+  }
+}

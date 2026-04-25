@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090B" />
+    <meta name="description" content="A focused builder for landing pages. Compose pages from polished sections, ship in minutes." />
+    <title>Slate — Landing pages, drafted in minutes</title>
+    <script>
+      // Anti-flicker: apply the persisted language direction before React mounts.
+      (function () {
+        try {
+          var raw = localStorage.getItem('slate.lang.v1')
+          if (!raw) return
+          var lang = JSON.parse(raw).state && JSON.parse(raw).state.lang
+          if (lang === 'ar') {
+            document.documentElement.lang = 'ar'
+            document.documentElement.dir = 'rtl'
+          }
+        } catch (e) { /* noop */ }
+      })()
+    </script>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
