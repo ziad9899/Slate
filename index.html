@@ -8,6 +8,21 @@
     <meta name="description" content="A focused builder for landing pages. Compose pages from polished sections, ship in minutes." />
     <title>Slate — Landing pages, drafted in minutes</title>
     <script>
+      // SPA path-recovery (companion to public/404.html). Decodes the path
+      // that was stashed in the query string and restores the real URL
+      // before any React code runs. Reference: rafgraph/spa-github-pages
+      (function () {
+        if (location.search.indexOf('?/') !== 0) return;
+        var decoded =
+          location.pathname.slice(0, -1) +
+          location.search.slice(2).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?') +
+          location.hash;
+        history.replaceState(null, null, decoded);
+      })();
+    </script>
+    <script>
       // Anti-flicker: apply the persisted language direction before React mounts.
       (function () {
         try {

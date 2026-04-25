@@ -76,6 +76,9 @@ export const en = {
 
   // ---- Footer (landing) ----
   'footer.tagline': 'A small, local-first builder.',
+  'footer.builtByPrefix': 'Built by',
+  'footer.brand': 'Ofq Tech',
+  'footer.visitWebsite': 'Visit our website',
 
   // ---- Builder shell ----
   'builder.untitledDraft': 'Untitled draft',
@@ -341,6 +344,9 @@ export const ar: Record<TranslationKey, string> = {
 
   // Footer
   'footer.tagline': 'أداة صغيرة محلية أولًا.',
+  'footer.builtByPrefix': 'تم التطوير بواسطة',
+  'footer.brand': 'أفق التقنية',
+  'footer.visitWebsite': 'موقعنا',
 
   // Builder shell
   'builder.untitledDraft': 'مسودة بلا عنوان',
